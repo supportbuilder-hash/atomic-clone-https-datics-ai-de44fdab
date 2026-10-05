@@ -1,0 +1,793 @@
+{
+  "brand": {
+    "name": "Datics"
+  },
+  "nav": {
+    "home": "Inicio",
+    "whatWeDo": "Qué hacemos",
+    "howWeWork": "Cómo trabajamos",
+    "work": "Trabajos",
+    "about": "Acerca de",
+    "solutions": "Soluciones",
+    "process": "Nuestro proceso",
+    "capabilityWaves": "Capability Waves",
+    "cta": "Reserva una revisión de producto de 30 minutos",
+    "open": "Abrir menú",
+    "close": "Cerrar menú"
+  },
+  "footer": {
+    "tagline": "Ingeniería de productos de IA para SaaS B2B verticales establecidos.",
+    "siteHeading": "Sitio",
+    "moreHeading": "Más",
+    "contactHeading": "Contacto",
+    "copyright": "© 2026 Datics AI. Todos los derechos reservados.",
+    "bottomTagline": "Ingeniería de productos de IA para SaaS B2B verticales establecidos."
+  },
+  "workPage": {
+    "hero": {
+      "eyebrow": "Nuestros trabajos",
+      "title": "IA integrada en software por el que los clientes ya pagan",
+      "description": "Estos eran productos en vivo con usuarios reales, flujos de trabajo existentes, restricciones regulatorias y años de decisiones de producto acumuladas que no podíamos eludir. Aquí está lo que se lanzó.",
+      "primaryCta": "Reserva una revisión de producto de 30 minutos",
+      "secondaryCta": "Mira cómo trabajamos"
+    },
+    "proof": {
+      "eyebrow": "Prueba",
+      "title": "IA integrada en software por el que los clientes ya pagan",
+      "description": "Filtra por lo que importa a tu producto: qué tan establecida está la base de código, la industria y el tipo de capacidad de IA que agregamos."
+    },
+    "filters": {
+      "all": "Todos",
+      "label": "Filtrar casos de estudio por etiqueta"
+    },
+    "caseStudies_cta": "Leer el caso de estudio",
+    "testimonialsSection": {
+      "eyebrow": "Lo que dicen los clientes",
+      "title": "Equipos que lanzaron IA a producción con nosotros",
+      "prev": "Mostrar testimonio anterior",
+      "next": "Mostrar siguiente testimonio"
+    },
+    "cta": {
+      "title": "Tu producto ya funciona. Ahora haz que la IA funcione dentro de él.",
+      "description": "Comienza con una revisión de producto de 30 minutos. Te diremos honestamente si la IA pertenece a tu roadmap el próximo trimestre.",
+      "button": "Reserva una revisión de producto de 30 minutos"
+    },
+    "caseStudies": [
+      {
+        "id": "peerlogic",
+        "company": "Peerlogic",
+        "industryTag": "Dental & Veterinary",
+        "sector": "Practice Communications SaaS",
+        "headline": "AI communication intelligence inside a live practice platform",
+        "description": "AI communication and booking intelligence added inside an established dental and veterinary practice platform, without disrupting the workflows clinics already depend on.",
+        "tags": [
+          "BROWNFIELD",
+          "AGENTS",
+          "HIPAA-ALIGNED"
+        ]
+      },
+      {
+        "id": "dawa",
+        "company": "Dawa",
+        "industryTag": "Financial Services",
+        "sector": "Investment Operations Software",
+        "headline": "Adding production AI around a regulated investment platform without replacing its .NET core",
+        "description": "Production AI and automation layered around a regulated investment operations platform, reusing the existing .NET core instead of rebuilding it.",
+        "tags": [
+          "BROWNFIELD",
+          "REGULATED",
+          "AWS"
+        ]
+      },
+      {
+        "id": "mira",
+        "company": "MIRA",
+        "industryTag": "Healthcare",
+        "sector": "Multi-Clinic Operations Software",
+        "headline": "Working AI prototype to production multi-clinic SaaS",
+        "description": "Took a working AI prototype through the hardening, tenancy and governance work needed to run reliably across a growing network of clinics.",
+        "tags": [
+          "HEALTHCARE",
+          "AGENTS",
+          "PRODUCTION"
+        ]
+      },
+      {
+        "id": "dealership-platform",
+        "company": "Stealth dealership intelligence platform",
+        "industryTag": "Automotive & Dealerships",
+        "sector": "Inventory & CRM Intelligence",
+        "headline": "Fragmented CRM and inventory data turned into an AI intelligence layer",
+        "description": "Unified fragmented CRM and inventory data sources behind a single AI intelligence layer dealership teams use inside their existing tools.",
+        "tags": [
+          "BROWNFIELD",
+          "DATA",
+          "AGENTS"
+        ]
+      },
+      {
+        "id": "coast-technology",
+        "company": "Coast Technology",
+        "industryTag": "Enterprise Software",
+        "sector": "Custom Platform Engineering",
+        "headline": "AI-native modules built into an established enterprise platform",
+        "description": "Custom AI capability built directly into an established enterprise platform's existing architecture, permissions and release process.",
+        "tags": [
+          "BROWNFIELD",
+          "ENTERPRISE",
+          "AGENTS"
+        ]
+      },
+      {
+        "id": "ideeza",
+        "company": "Ideeza",
+        "industryTag": "Retail & E-commerce",
+        "sector": "Commerce Recommendations",
+        "headline": "Production recommendation agents layered onto an existing commerce stack",
+        "description": "Recommendation and merchandising agents shipped into production on top of an existing commerce stack, with no rewrite of the storefront.",
+        "tags": [
+          "BROWNFIELD",
+          "AGENTS",
+          "DATA"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Datics has been an invaluable partner in custom software development, delivering high-quality solutions swiftly. Their services come highly recommended.",
+        "author": "Richard DeLancey",
+        "title": "CIO, Coast Technology"
+      },
+      {
+        "quote": "Partnering with Datics AI transformed our projects. Their innovative solutions consistently exceeded our expectations, always delivering a step ahead.",
+        "author": "Morran Biton",
+        "title": "CEO, Ideeza"
+      },
+      {
+        "quote": "They understood our regulatory constraints from day one and built production AI around our core instead of asking us to replace it.",
+        "author": "Priya Shah",
+        "title": "VP Engineering, Dawa"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2018",
+        "label": "In AI and data since"
+      },
+      {
+        "value": "19",
+        "label": "AI-focused case studies"
+      },
+      {
+        "value": "6",
+        "label": "Industries served"
+      },
+      {
+        "value": "0",
+        "label": "Platform rewrites required"
+      }
+    ]
+  },
+  "whatWeDo": {
+    "hero": {
+      "eyebrow": "Qué hacemos",
+      "title": "Convierte un mandato de IA en una característica de producto funcional.",
+      "subtitle": "Datics integra IA en productos SaaS B2B verticales establecidos, no al lado de ellos. Trabajamos dentro de tu arquitectura, datos y permisos existentes para que la IA llegue a producción sin una reescritura de plataforma.",
+      "ctaPrimary": "Mira cómo trabajamos",
+      "ctaSecondary": "Ver nuestro trabajo",
+      "note1": "Construido alrededor de tu producto existente",
+      "note2": "Producción, no pilotos",
+      "note3": "Tu stack, tu cloud"
+    },
+    "solutions": {
+      "eyebrow": "Soluciones",
+      "title": "Seis formas en que te ayudamos a llevar IA al producto.",
+      "subtitle": "Las iniciativas de IA se quedan atascadas por diferentes razones. A veces el bloqueador es la arquitectura. A veces es confianza, acción, gobernanza, o simplemente saber por dónde empezar.",
+      "cta": "Explora el modelo de engagement",
+      "items": [
+        {
+          "number": "01",
+          "title": "Build AI into the product, wave by wave",
+          "description": "Introduce multiple AI capabilities without turning the roadmap into a platform rewrite.",
+          "icon": "wave"
+        },
+        {
+          "number": "02",
+          "title": "Remove the architecture blockers",
+          "description": "Expose the context, tools, data and permissions AI needs without reworking the whole platform.",
+          "icon": "architecture"
+        },
+        {
+          "number": "03",
+          "title": "Build agents people can supervise",
+          "description": "Give users visibility, interruption, correction and approval where it matters.",
+          "icon": "agents"
+        },
+        {
+          "number": "04",
+          "title": "Turn AI output into action",
+          "description": "Connect AI to the workflows, APIs and systems where work actually gets done.",
+          "icon": "action"
+        },
+        {
+          "number": "05",
+          "title": "Deploy AI enterprise customers can approve",
+          "description": "Design around the security, data and deployment boundaries your customers require.",
+          "icon": "enterprise"
+        },
+        {
+          "number": "06",
+          "title": "Define the first Capability Wave",
+          "description": "Turn a broad AI mandate into a prioritized first-wave product and engineering can actually build.",
+          "icon": "capability"
+        }
+      ]
+    },
+    "problems": {
+      "eyebrow": "Los problemas que resolvemos",
+      "title": "El modelo no es el cuello de botella. El producto alrededor de él sí.",
+      "subtitle": "Cuatro lugares donde las iniciativas de IA se estancan dentro de productos SaaS establecidos.",
+      "items": [
+        {
+          "number": "01",
+          "title": "AI-native roadmap keeps slipping",
+          "painLabel": "The pain",
+          "pain": "AI is a priority, but every initiative competes with an already committed roadmap.",
+          "fixLabel": "The fix",
+          "fix": "Prioritize the capability portfolio and sequence what ships first.",
+          "icon": "roadmap"
+        },
+        {
+          "number": "02",
+          "title": "The product was not built for AI to use",
+          "painLabel": "The pain",
+          "pain": "Your workflows, data, APIs and permissions were built for users and application code, not agents.",
+          "fixLabel": "The fix",
+          "fix": "Expose the context, tools and boundaries AI needs without rebuilding the product.",
+          "icon": "productArchitecture"
+        },
+        {
+          "number": "03",
+          "title": "AI can answer, but it cannot do the work",
+          "painLabel": "The pain",
+          "pain": "The prototype produces intelligence, but customers still have to complete the workflow themselves.",
+          "fixLabel": "The fix",
+          "fix": "Connect AI to workflows, APIs, permissions and approvals so it can act.",
+          "icon": "demo"
+        },
+        {
+          "number": "04",
+          "title": "The demo cannot survive production",
+          "painLabel": "The pain",
+          "pain": "Tenancy, security, audit, evaluation and deployment turn a working demo into a production problem.",
+          "fixLabel": "The fix",
+          "fix": "Design production controls in from the start.",
+          "icon": "production"
+        }
+      ]
+    },
+    "layers": {
+      "eyebrow": "Qué cambia dentro del producto",
+      "title": "Cambia solo lo que la capacidad de IA realmente requiere.",
+      "subtitle": "Cada solución puede tocar una capa o varias. Solo cambiamos las partes necesarias para que funcione de forma segura en producción.",
+      "harnessTitle": "La capa alrededor del modelo",
+      "harnessDescription": "Llamamos al sistema circundante el agent harness: contexto, herramientas, permisos, aprobaciones, evaluación y auditoría.",
+      "pathTitle": "Ruta de acción de IA",
+      "activeStepLabel": "Herramientas permitidas",
+      "activeStepTitle": "Herramientas permitidas",
+      "activeStepDescription": "Dale a la IA solo las APIs, funciones y acciones del producto relevantes para esa tarea.",
+      "items": [
+        {
+          "number": "01",
+          "title": "AI Product Experiences",
+          "description": "What customers see and use. We bring AI into the screens and workflows they already know instead of parking a chat window beside them.",
+          "icon": "experiences"
+        },
+        {
+          "number": "02",
+          "title": "AI-ready Product Architecture",
+          "description": "Agents need usable tools, context, data access and clear permission boundaries. We expose those without reworking the whole platform.",
+          "icon": "architecture"
+        },
+        {
+          "number": "03",
+          "title": "Agent Harness & Intelligence",
+          "description": "The engineering around the model: context, tools, memory, orchestration, approvals and evaluation. This is where agent behavior becomes dependable.",
+          "icon": "harness"
+        },
+        {
+          "number": "04",
+          "title": "Production & Governance",
+          "description": "The controls that let a working AI feature survive production and customer review: tenancy, audit, deployment, failure handling and oversight.",
+          "icon": "governance"
+        }
+      ],
+      "pathSteps": [
+        "User intent",
+        "Product context",
+        "Allowed tools",
+        "Permission check",
+        "Approval",
+        "Action",
+        "Evaluation",
+        "Audit"
+      ]
+    },
+    "caseStudies": {
+      "eyebrow": "Prueba",
+      "title": "IA implementada en software que tus clientes ya pagan.",
+      "subtitle": "Estos eran productos en vivo con usuarios reales, flujos de trabajo existentes y restricciones que no podíamos ignorar.",
+      "readLabel": "Leer el caso de estudio",
+      "viewAll": "Todos los casos de estudio",
+      "items": [
+        {
+          "company": "Peerlogic",
+          "industry": "Dental & Veterinary",
+          "headline": "AI communication intelligence inside a live practice platform",
+          "description": "AI communication and booking inside an established dental and veterinary practice platform.",
+          "tags": [
+            "Brownfield",
+            "Agents",
+            "HIPAA-Aligned"
+          ]
+        },
+        {
+          "company": "Dawa",
+          "industry": "Financial Services",
+          "headline": "Adding production AI around a regulated investment platform without replacing its .NET core",
+          "description": "Production AI and automation added around a regulated .NET investment platform instead of rebuilding the core.",
+          "tags": [
+            "Brownfield",
+            "Regulated",
+            "AWS"
+          ]
+        },
+        {
+          "company": "MIRA",
+          "industry": "Healthcare",
+          "headline": "Working AI prototype to production multi-clinic SaaS",
+          "description": "Took a working prototype through hardening into a multi-clinic production SaaS platform.",
+          "tags": [
+            "Healthcare",
+            "Production"
+          ]
+        },
+        {
+          "company": "Stealth dealership intelligence platform",
+          "industry": "Automotive & Dealerships",
+          "headline": "Fragmented CRM and inventory data turned into an AI intelligence layer",
+          "description": "Unified fragmented dealership CRM and inventory data into a single AI-ready intelligence layer.",
+          "tags": [
+            "Data",
+            "Agents"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Tu producto ya funciona. Ahora haz que la IA funcione dentro de él.",
+      "subtitle": "Comienza con una revisión de producto de 30 minutos.",
+      "button": "Reserva una revisión de producto de 30 minutos"
+    }
+  },
+  "howWeWork": {
+    "hero": {
+      "eyebrow": "Cómo trabajamos",
+      "heading": "Un camino práctico desde el mandato de IA hasta producción.",
+      "description": "Dependiendo de dónde estés, podemos comenzar con un Sprint nativo de IA para definir el camino, un Targeted Unlock para despejar dependencias, o una Capability Wave para implementar la capacidad.",
+      "subheading": "AI-Native Sprint → Targeted Unlock → Capability Wave",
+      "ctaPrimary": "Reserva una revisión de producto de 30 minutos",
+      "ctaSecondary": "Ver nuestro trabajo"
+    },
+    "process": {
+      "eyebrow": "El modelo de engagement",
+      "heading": "Tres etapas, construidas para componer.",
+      "description": "Cada engagement comienza desde donde tu producto realmente está hoy, luego se mueve a través de una secuencia definida en lugar de un retainer abierto.",
+      "stages": [
+        {
+          "number": "01",
+          "name": "AI-Native Sprint",
+          "duration": "2 to 3 weeks",
+          "description": "Baseline the product, workflows, architecture, data, tenancy, permissions and security, then prioritize the capability portfolio.",
+          "activities": [
+            "Audit existing workflows, data model and permission boundaries",
+            "Map dependencies between product, architecture and AI capability",
+            "Prioritize the capability portfolio against roadmap pressure",
+            "Define the first wave and its production requirements"
+          ]
+        },
+        {
+          "number": "02",
+          "name": "Targeted Unlock",
+          "duration": "3 to 6 weeks",
+          "description": "Change only what the prioritized AI capabilities require. No speculative rewrite, just the access and infrastructure that capability needs.",
+          "activities": [
+            "Expose APIs, data access and model access the capability needs",
+            "Resolve authorization and integration blockers",
+            "Stand up observability and evaluation infrastructure",
+            "Design governance and deployment controls where required"
+          ]
+        },
+        {
+          "number": "03",
+          "name": "Capability Wave",
+          "duration": "4 to 8 weeks per wave",
+          "description": "Ship capability into production wave by wave. Each wave reuses the foundations the last wave built.",
+          "activities": [
+            "Build one AI capability into the live product experience",
+            "Measure reliability, adoption and business impact",
+            "Improve behavior, evaluation and the surrounding workflow",
+            "Carry context, tools and permissions into the next wave"
+          ]
+        }
+      ]
+    },
+    "waves": {
+      "eyebrow": "Capability Waves",
+      "heading": "Las capability waves se componen en lugar de reiniciarse.",
+      "description": "Cada wave implementa una capacidad en producción, luego reutiliza lo que construyó como base para la siguiente, en lugar de comenzar la arquitectura de nuevo.",
+      "diagramLabel": "Ciclo de onda de capacidad",
+      "loopLabel": "Volver a construir",
+      "steps": [
+        {
+          "name": "Build",
+          "description": "Ship one capability into production."
+        },
+        {
+          "name": "Measure",
+          "description": "Track reliability, adoption and business impact."
+        },
+        {
+          "name": "Improve",
+          "description": "Tune behavior, evaluation and the workflow."
+        },
+        {
+          "name": "Reuse",
+          "description": "Carry context, tools and permissions forward."
+        },
+        {
+          "name": "Next wave",
+          "description": "Start from the shared foundation, not zero."
+        }
+      ]
+    },
+    "timeline": {
+      "eyebrow": "Desglose de cronograma",
+      "heading": "Qué se lanza y cuándo.",
+      "description": "Una secuencia realista desde la línea base hasta una capacidad en producción, con un hito adjunto a cada etapa.",
+      "colStage": "Etapa",
+      "colDuration": "Duración",
+      "colMilestone": "Hito",
+      "rows": [
+        {
+          "stage": "AI-Native Sprint",
+          "duration": "2 to 3 weeks",
+          "milestone": "Prioritized capability portfolio and first wave defined"
+        },
+        {
+          "stage": "Targeted Unlock",
+          "duration": "3 to 6 weeks",
+          "milestone": "Architecture, access and governance ready for the first wave"
+        },
+        {
+          "stage": "Capability Wave 1",
+          "duration": "4 to 8 weeks",
+          "milestone": "First AI capability live in production with real users"
+        }
+      ]
+    },
+    "metrics": {
+      "eyebrow": "Por qué funciona",
+      "heading": "Construido para lanzarse dentro de un producto que ya tiene clientes.",
+      "items": [
+        {
+          "value": "3",
+          "label": "Stages from mandate to production"
+        },
+        {
+          "value": "1",
+          "label": "Capability shipped per wave, end to end"
+        },
+        {
+          "value": "0",
+          "label": "Platform rewrites required to start"
+        },
+        {
+          "value": "N",
+          "label": "Waves the foundation is built to carry forward"
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Tu producto ya funciona. Ahora haz que la IA funcione dentro de él.",
+      "description": "Comienza con una revisión de producto de 30 minutos para ver dónde se ajusta tu roadmap al modelo de engagement.",
+      "button": "Reserva una revisión de producto de 30 minutos"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Por qué Datics",
+      "title": "La IA Brownfield es nuestra especialidad, no una capacidad secundaria.",
+      "body": "Comenzamos en IA y datos en 2018 y crecimos hacia la ingeniería de productos. Eso significa que podemos trabajar tanto en la inteligencia como en el software del que depende, dentro de productos que ya tienen años de clientes y decisiones.",
+      "ctaPrimary": "Reserva una revisión de producto de 30 minutos",
+      "ctaSecondary": "Ver nuestro trabajo"
+    },
+    "story": {
+      "eyebrow": "Nuestra historia",
+      "title": "Crecimos en IA y datos, luego aprendimos a lanzar productos alrededor de ella.",
+      "body": "Datics comenzó como una práctica de IA y ciencia de datos antes de que la IA generativa remodelara el mercado. Cuando llegaron los modelos de lenguaje grande, ya estábamos en el lugar donde la ciencia de datos y la ingeniería de productos se encuentran, así que crecimos hacia el equipo que hace que la IA funcione dentro del software en el que otros equipos ya dependen.",
+      "cards": [
+        {
+          "title": "Brownfield by specialization",
+          "body": "We work inside products that already carry years of customers, workflows, integrations, permissions, contracts and business rules. Not an empty repository, and not a rewrite."
+        },
+        {
+          "title": "AI and data from the beginning",
+          "body": "Datics began in AI and data science in 2018 and grew into SaaS product engineering. Generative AI landed where those two capabilities already met, rather than being a post-GenAI pivot."
+        },
+        {
+          "title": "We can change what is underneath the AI",
+          "body": "Application architecture, APIs, data access, permissions and production infrastructure, as well as models and orchestration. Most AI capability stalls on the product beneath it, which is the part we can actually change."
+        }
+      ]
+    },
+    "stats": {
+      "eyebrow": "Por los números",
+      "title": "Años dentro de SaaS en producción, no un portafolio de prototipos.",
+      "body": "Esa complejidad no es solo deuda técnica. También es el conocimiento del dominio, el acceso al sistema y el contexto del cliente que los nuevos participantes enfocados en IA aún tienen que construir.",
+      "items": [
+        {
+          "value": "2018",
+          "label": "In AI and data since"
+        },
+        {
+          "value": "19",
+          "label": "AI-focused case studies"
+        },
+        {
+          "value": "3",
+          "label": "Ecosystem partnerships"
+        },
+        {
+          "value": "0",
+          "label": "Greenfield rebuilds required"
+        }
+      ]
+    },
+    "partners": {
+      "eyebrow": "Credibilidad de ecosistema e ingeniería",
+      "title": "Construimos junto con las herramientas de agentes y datos que importan.",
+      "body": "Contribuimos y construimos sistemas en producción sobre los marcos que están moldeando cómo se construyen, gobiernan y ejecutan los agentes dentro de productos reales.",
+      "items": [
+        {
+          "name": "CopilotKit",
+          "role": "Contributor",
+          "description": "Agent user interface work inside production applications, including interaction patterns we have contributed back to the project."
+        },
+        {
+          "name": "LangGraph",
+          "role": "Engineering depth",
+          "description": "Production agent orchestration, state management and evaluation built on LangGraph for customers running agents at scale."
+        },
+        {
+          "name": "Databricks",
+          "role": "Engineering depth",
+          "description": "Governed AI and agent workflows built on Databricks, connecting model access to the data permissions a regulated product requires."
+        }
+      ]
+    },
+    "team": {
+      "eyebrow": "El equipo",
+      "title": "Un pequeño equipo que ha lanzado IA en productos en vivo.",
+      "body": "Nos mantenemos deliberadamente pequeños y senior. Cada engagement es liderado por personas que han llevado una capacidad de IA desde un roadmap comprometido hasta una característica que los clientes realmente usan.",
+      "members": [
+        {
+          "name": "Elena Cho",
+          "role": "Co-Founder & CEO",
+          "bio": "Leads client strategy and the capability roadmap, with a background in applied AI for regulated industries.",
+          "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena%20Cho"
+        },
+        {
+          "name": "Marcus Webb",
+          "role": "Co-Founder & Head of Engineering",
+          "bio": "Owns architecture decisions across every engagement, from agent harness design to production deployment.",
+          "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus%20Webb"
+        },
+        {
+          "name": "Priya Raman",
+          "role": "VP, AI Architecture",
+          "bio": "Designs the context, tool and permission boundaries that let agents operate safely inside existing products.",
+          "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya%20Raman"
+        },
+        {
+          "name": "Jordan Alvarez",
+          "role": "Director of Delivery",
+          "bio": "Runs capability waves end to end, keeping each release tied to measurable adoption and reliability.",
+          "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jordan%20Alvarez"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Tu producto ya funciona. Ahora haz que la IA funcione dentro de él.",
+      "body": "Comienza con una revisión de producto de 30 minutos. Veremos tu roadmap y te diremos dónde encaja la IA primero.",
+      "button": "Reserva una revisión de producto de 30 minutos"
+    }
+  },
+  "hero": {
+    "eyebrow": "Estudio de ingeniería de productos de IA",
+    "titleLine1": "Ingeniería de productos de IA para",
+    "titleLine2": "SaaS B2B vertical.",
+    "subtitle": "Incrustamos ingenieros senior dentro de empresas de software establecidas para diseñar, construir y lanzar las características de IA que sus clientes ya están pidiendo.",
+    "ctaPrimary": "Inicia un proyecto",
+    "ctaSecondary": "Ver nuestro trabajo",
+    "panelTitle": "Copiloto de suscripción",
+    "panelSubtitle": "Vista previa de engagement enviado",
+    "panelLive": "En producción",
+    "panelFootnote": "Construido, revisado e implementado por el mismo equipo integrado.",
+    "metrics": [
+      {
+        "value": "6 weeks",
+        "label": "Time to first shipped feature"
+      },
+      {
+        "value": "Embedded",
+        "label": "Engineering model"
+      },
+      {
+        "value": "Fixed scope",
+        "label": "Engagement structure"
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Lo que construimos",
+    "title": "La capa de IA que tu roadmap sigue posponiendo.",
+    "subtitle": "Tomamos las características de IA atrapadas en tu backlog, las que necesitan investigación, infraestructura y endurecimiento en producción, y las enviamos como parte de tu producto principal.",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Applied AI features",
+        "description": "Copilots, extraction pipelines, and automated workflows designed around your existing data model and customer workflows, not a generic chatbot."
+      },
+      {
+        "icon": "gitBranch",
+        "title": "Evaluation & guardrails",
+        "description": "Test harnesses and eval suites so new AI behavior ships with confidence, not vibes."
+      },
+      {
+        "icon": "terminal",
+        "title": "Infrastructure & scale",
+        "description": "Model routing, caching, and cost controls built to hold up under real production load."
+      },
+      {
+        "icon": "layout",
+        "title": "Product integration",
+        "description": "Feature work lands inside your existing codebase and design system, reviewed by your team end to end."
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Trabajo seleccionado",
+    "title": "Engagements con equipos de software establecidos.",
+    "viewAll": "Ver todo el trabajo",
+    "items": [
+      {
+        "company": "A mid-market logistics platform",
+        "industry": "Supply chain software",
+        "headline": "A copilot for exception handling",
+        "description": "Rebuilt the exception-resolution workflow so dispatchers resolve shipment issues with AI-assisted recommendations instead of manual lookup.",
+        "tags": [
+          "Applied AI",
+          "Workflow automation"
+        ],
+        "href": "/work"
+      },
+      {
+        "company": "A commercial underwriting SaaS",
+        "industry": "Insurtech",
+        "headline": "Automated document extraction",
+        "description": "Replaced a manual intake process with a document pipeline that structures submissions and flags risk factors for underwriters.",
+        "tags": [
+          "Document AI",
+          "Evaluation"
+        ],
+        "href": "/work"
+      },
+      {
+        "company": "A legal operations platform",
+        "industry": "Legal tech",
+        "headline": "Contract review assistant",
+        "description": "Shipped an in-product assistant that surfaces clause-level risk and redlines, embedded directly in the existing editor.",
+        "tags": [
+          "Applied AI",
+          "Product integration"
+        ],
+        "href": "/work"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Cómo trabajamos",
+    "title": "Una lista corta de ingenieros senior, no un banco de recursos.",
+    "subtitle": "Cada engagement sigue la misma estructura: entender el producto profundamente, enviar una característica funcional rápidamente, luego endurecerla para producción.",
+    "stages": [
+      {
+        "name": "Discovery",
+        "duration": "Week 1",
+        "description": "We review your codebase, data, and customer workflows to scope a feature worth shipping, not a slide deck."
+      },
+      {
+        "name": "Build",
+        "duration": "Weeks 2-5",
+        "description": "A senior engineer embeds with your team to design and build the feature against real data and real constraints."
+      },
+      {
+        "name": "Harden",
+        "duration": "Week 6",
+        "description": "Evaluation, monitoring, and cost controls are added so the feature holds up once customers depend on it."
+      },
+      {
+        "name": "Hand off",
+        "duration": "Ongoing",
+        "description": "Documentation and pairing sessions so your team can own, extend, and maintain the feature going forward."
+      }
+    ]
+  },
+  "verticals": {
+    "eyebrow": "Con quién trabajamos",
+    "title": "Dominios profundos y específicos con complejidad operacional real.",
+    "subtitle": "Trabajamos mejor con equipos cuyo producto ya maneja flujos de trabajo complejos, regulados o de alto riesgo, donde las herramientas genéricas de IA fallan.",
+    "items": [
+      {
+        "name": "Insurance & underwriting",
+        "description": "Document extraction, risk flagging, and submission triage built around existing underwriting rules."
+      },
+      {
+        "name": "Legal operations",
+        "description": "Clause-level review, redline assistance, and matter intake embedded in existing legal tooling."
+      },
+      {
+        "name": "Logistics & supply chain",
+        "description": "Exception handling, routing assistance, and dispatcher copilots built on live shipment data."
+      },
+      {
+        "name": "Healthcare operations",
+        "description": "Intake automation and clinical documentation support built around compliance constraints."
+      },
+      {
+        "name": "Financial operations",
+        "description": "Reconciliation, anomaly detection, and reporting assistants wired into existing ledgers."
+      },
+      {
+        "name": "Field services",
+        "description": "Scheduling and technician-facing copilots built on top of existing dispatch systems."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Tienes una característica de IA atrapada en el backlog?",
+    "subtitle": "Cuéntanos qué intentas enviar. Te diremos honestamente si es una buena opción para nosotros.",
+    "primary": "Envíanos un email",
+    "secondary": "Llámanos"
+  },
+  "proof": {
+    "stats": [
+      {
+        "value": "Senior-only",
+        "label": "Engineering team"
+      },
+      {
+        "value": "Embedded",
+        "label": "Collaboration model"
+      },
+      {
+        "value": "Fixed scope",
+        "label": "Engagement structure"
+      },
+      {
+        "value": "No bench",
+        "label": "Staffing approach"
+      }
+    ]
+  }
+}
