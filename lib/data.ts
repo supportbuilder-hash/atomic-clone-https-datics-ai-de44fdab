@@ -34,7 +34,14 @@ export const BRAND = {
   phone: "+1 (945) 297-6257",
 };
 
-export const BRAND_NAME = BRAND.name;
-export const BRAND_TAGLINE = BRAND.tagline;
-export const CONTACT_EMAIL = BRAND.email;
-export const CONTACT_PHONE = BRAND.phone;
+/**
+ * Defensive, explicitly-fallback-guaranteed string exports. Even if BRAND is
+ * ever destructured incorrectly or a field is accidentally stripped upstream,
+ * these consts always resolve to a defined, non-empty string so consumers
+ * calling .replace/.split/.toLocaleString on them can never crash.
+ */
+export const BRAND_NAME = BRAND.name ?? "Datics";
+export const BRAND_TAGLINE =
+  BRAND.tagline ?? "AI product engineering for established vertical B2B SaaS.";
+export const CONTACT_EMAIL = BRAND.email ?? "business@datics.ai";
+export const CONTACT_PHONE = BRAND.phone ?? "+1 (945) 297-6257";

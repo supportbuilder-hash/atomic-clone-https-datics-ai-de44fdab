@@ -706,7 +706,8 @@
       }
     ],
     "cta": "View Project",
-    "readMore": "Learn More"
+    "readMore": "Learn More",
+    "readCase": "Read Case Study"
   },
   "process": {
     "eyebrow": "How we work",
@@ -791,6 +792,8 @@
     "subtitle": "Tell us what you're trying to ship. We will tell you honestly whether it is a good fit for us.",
     "primary": "Email us",
     "secondary": "Call us",
-    "ctaPrimary": "Get Started"
+    "ctaPrimary": "Get Started",
+    "button": "Get in Touch",
+    "description": "Ready to start your next project? Let's talk."
   }
 }

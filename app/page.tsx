@@ -55,6 +55,12 @@ const panelRow: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
+// Fallback brand constants used only if lib/data fails to provide a value.
+const FALLBACK_BRAND_NAME = "Datics";
+const FALLBACK_BRAND_TAGLINE = "AI product engineering for established vertical B2B SaaS.";
+const FALLBACK_CONTACT_EMAIL = "business@datics.ai";
+const FALLBACK_CONTACT_PHONE = "+1 (945) 297-6257";
+
 export default function HomePage() {
   const t = useTranslations();
 
@@ -95,6 +101,16 @@ export default function HomePage() {
   const heroMetrics = (
     Array.isArray(safeRaw("hero.metrics")) ? (safeRaw("hero.metrics") as StatEntry[]) : []
   );
+
+  // Null-safe brand/contact values. The lib/data import may resolve to
+  // undefined in some build/runtime edge cases, so every value used below is
+  // guarded with a nullish-coalescing fallback before any string method is
+  // called on it (.replace, template interpolation, etc.).
+  const brandName = BRAND_NAME ?? FALLBACK_BRAND_NAME;
+  const brandTagline = BRAND_TAGLINE ?? FALLBACK_BRAND_TAGLINE;
+  const contactEmail = CONTACT_EMAIL ?? FALLBACK_CONTACT_EMAIL;
+  const phoneDisplay = CONTACT_PHONE ?? FALLBACK_CONTACT_PHONE;
+  const phoneHref = phoneDisplay?.replace(/[^\d+]/g, "") ?? phoneDisplay ?? "";
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">
@@ -137,7 +153,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-                {BRAND_TAGLINE}
+                {brandTagline}
               </p>
             </div>
 
@@ -193,206 +209,208 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-6">
-            {capabilities.map((item, i) => {
-              const Icon = (item?.icon && ICONS[item.icon]) || Sparkles;
-              const spanClass =
-                i === 0
-                  ? "md:col-span-4 md:row-span-2"
-                  : i === 1
-                  ? "md:col-span-2"
-                  : i === 2
-                  ? "md:col-span-2"
-                  : "md:col-span-3";
-              return (
-                <div
-                  key={item?.title ?? i}
-                  className={`${spanClass} rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.18)]`}
-                >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {capabilities.length > 0 ? (
+              capabilities.map((item, i) => {
+                const Icon = (item?.icon && ICONS[item.icon]) ? ICONS[item.icon] : Sparkles;
+                return (
+                  <div
+                    key={item?.title ?? i}
+                    className={`rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.16)] ${
+                      i === 0 ? "md:col-span-2" : ""
+                    }`}
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold tracking-tight">{item?.title ?? ""}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">{item?.description ?? ""}</p>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold tracking-tight">{item?.title ?? ""}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                    {item?.description ?? ""}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })
+            ) : null}
           </div>
         </section>
       </Reveal>
 
-      {/* PROCESS — timeline list */}
+      {/* VERTICALS — tinted strip */}
       <Reveal>
-        <section id="engagement-process" className="border-y border-[var(--border)] bg-[var(--card)]">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+        <section id="verticals" className="border-y border-[var(--border)] bg-[var(--primary)] text-white">
+          <div className="mx-auto max-w-7xl px-6 py-20 md:py-24 lg:px-8">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
-                {t("process.eyebrow")}
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+                {t("verticals.eyebrow")}
               </span>
-              <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-                {t("process.title")}
+              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+                {t("verticals.title")}
               </h2>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
-                {t("process.subtitle")}
-              </p>
             </div>
-
-            <div className="mt-12 divide-y divide-[var(--border)] border-t border-[var(--border)]">
-              {stages.map((stage, i) => (
-                <div
-                  key={stage?.name ?? i}
-                  className="grid grid-cols-1 gap-3 py-7 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-8"
-                >
-                  <span className="text-sm font-semibold tabular-nums text-indigo-500">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-semibold tracking-tight">{stage?.name ?? ""}</h3>
-                    <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--muted-foreground)]">
-                      {stage?.description ?? ""}
-                    </p>
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {verticals.length > 0 ? (
+                verticals.map((item, i) => (
+                  <div
+                    key={item?.name ?? i}
+                    className="rounded-xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm"
+                  >
+                    <h3 className="text-sm font-semibold text-white">{item?.name ?? ""}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">{item?.description ?? ""}</p>
                   </div>
-                  <span className="text-sm font-medium text-[var(--muted-foreground)] md:text-right">
-                    {stage?.duration ?? ""}
-                  </span>
-                </div>
-              ))}
+                ))
+              ) : null}
             </div>
           </div>
         </section>
       </Reveal>
 
-      {/* VERTICALS */}
+      {/* PROCESS — list layout */}
       <Reveal>
-        <section id="solutions-grid" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+        <section id="process" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
-              {t("verticals.eyebrow")}
+              {t("process.eyebrow")}
             </span>
             <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-              {t("verticals.title")}
+              {t("process.title")}
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
-              {t("verticals.subtitle")}
-            </p>
           </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {verticals.map((item, i) => (
-              <div
-                key={item?.name ?? i}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:border-indigo-500/30"
-              >
-                <h3 className="text-lg font-semibold tracking-tight">{item?.name ?? ""}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                  {item?.description ?? ""}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </Reveal>
-
-      {/* PROOF / STATS */}
-      <Reveal>
-        <section className="border-y border-[var(--border)] bg-[var(--primary)] text-white">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {proofStats.map((stat, i) => (
-                <div key={stat?.label ?? i}>
-                  <p className="text-4xl font-semibold tracking-tight">{stat?.value ?? ""}</p>
-                  <p className="mt-2 text-sm text-white/70">{stat?.label ?? ""}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      {/* CASE STUDIES */}
-      <Reveal>
-        <section id="work-preview" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
-                {t("work.eyebrow")}
-              </span>
-              <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-                {t("work.title")}
-              </h2>
-            </div>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-500 transition-colors duration-200 hover:text-indigo-600"
-            >
-              {t("work.cta")}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {caseStudies.map((item, i) => (
-              <Link
-                key={item?.company ?? i}
-                href={item?.href ?? "/work"}
-                className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.18)]"
-              >
-                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
-                  {item?.industry ?? ""}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold tracking-tight">{item?.company ?? ""}</h3>
-                <p className="mt-2 text-sm font-medium leading-relaxed">{item?.headline ?? ""}</p>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                  {item?.description ?? ""}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {item?.tags?.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-[var(--background)] px-2.5 py-1 text-xs font-medium text-[var(--muted-foreground)]"
-                    >
-                      {tag}
+          <ol className="mt-12 space-y-4">
+            {stages.length > 0 ? (
+              stages.map((stage, i) => (
+                <li
+                  key={stage?.name ?? i}
+                  className="flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/10 text-sm font-semibold text-indigo-500">
+                      {i + 1}
                     </span>
-                  ))}
-                </div>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-indigo-500">
-                  {t("work.readMore")}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                    <div>
+                      <h3 className="text-base font-semibold tracking-tight">{stage?.name ?? ""}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[var(--muted-foreground)]">{stage?.description ?? ""}</p>
+                    </div>
+                  </div>
+                  <span className="flex-shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs font-medium text-[var(--muted-foreground)]">
+                    {stage?.duration ?? ""}
+                  </span>
+                </li>
+              ))
+            ) : null}
+          </ol>
+        </section>
+      </Reveal>
+
+      {/* WORK — full-bleed cards */}
+      <Reveal>
+        <section id="work" className="border-t border-[var(--border)] bg-[var(--card)]">
+          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-2xl">
+                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
+                  {t("work.eyebrow")}
                 </span>
+                <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+                  {t("work.title")}
+                </h2>
+              </div>
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-500 transition-colors duration-200 hover:text-indigo-600"
+              >
+                {t("work.viewAll")}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-            ))}
+            </div>
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {caseStudies.length > 0 ? (
+                caseStudies.map((study, i) => (
+                  <Link
+                    key={study?.company ?? i}
+                    href={study?.href ?? "/work"}
+                    className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--background)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.16)]"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
+                      {study?.industry ?? ""}
+                    </span>
+                    <h3 className="mt-3 text-lg font-semibold tracking-tight">{study?.company ?? ""}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                      {study?.description ?? ""}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {(study?.tags ?? []).map((tag, tagIndex) => (
+                        <span
+                          key={`${study?.company ?? i}-${tag ?? tagIndex}`}
+                          className="rounded-full border border-[var(--border)] bg-[var(--card)] px-2.5 py-1 text-[11px] font-medium text-[var(--muted-foreground)]"
+                        >
+                          {tag ?? ""}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500 transition-colors duration-200 group-hover:text-indigo-600">
+                      {t("work.readCase")}
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))
+              ) : null}
+            </div>
           </div>
         </section>
       </Reveal>
 
-      {/* CTA BANNER */}
+      {/* PROOF — stat strip */}
       <Reveal>
-        <section id="cta-banner" className="border-t border-[var(--border)] bg-[var(--card)]">
-          <div className="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8">
-            <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+        <section id="proof" className="mx-auto max-w-7xl px-6 py-20 md:py-24 lg:px-8">
+          <div className="grid grid-cols-2 gap-6 border-y border-[var(--border)] py-10 sm:grid-cols-4">
+            {proofStats.length > 0 ? (
+              proofStats.map((stat, i) => (
+                <div key={stat?.label ?? i} className="text-center">
+                  <p className="text-3xl font-semibold tracking-tight text-[var(--primary)] md:text-4xl">
+                    {stat?.value ?? ""}
+                  </p>
+                  <p className="mt-2 text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+                    {stat?.label ?? ""}
+                  </p>
+                </div>
+              ))
+            ) : null}
+          </div>
+        </section>
+      </Reveal>
+
+      {/* CTA — closing banner */}
+      <Reveal>
+        <section id="cta-banner" className="border-t border-[var(--border)] bg-[var(--foreground)] text-white">
+          <div className="mx-auto max-w-5xl px-6 py-20 text-center md:py-24 lg:px-8">
+            <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
               {t("cta.title")}
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
-              {t("cta.subtitle")}
+            <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-white/70">
+              {t("cta.description")}
             </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/how-we-work"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] shadow-[0_1px_2px_rgba(0,0,0,0.08),0_12px_24px_-8px_rgba(242,166,61,0.45)] transition-all duration-300 ease-out hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+              >
+                {t("cta.button")}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.08),0_12px_24px_-8px_rgba(79,70,229,0.45)] transition-all duration-300 ease-out hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                href={`mailto:${contactEmail}`}
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
-                {t("cta.ctaPrimary")}
+                {contactEmail}
               </a>
               <a
-                href={`tel:${CONTACT_PHONE}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition-all duration-300 ease-out hover:border-indigo-500/40 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                href={phoneHref ? `tel:${phoneHref}` : "#"}
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
-                {CONTACT_PHONE}
+                {phoneDisplay}
               </a>
             </div>
+            <p className="mt-6 text-xs uppercase tracking-wider text-white/40">{brandName}</p>
           </div>
         </section>
       </Reveal>

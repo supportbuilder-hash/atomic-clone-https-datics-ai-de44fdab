@@ -16,24 +16,24 @@
     "close": "Cerrar menú"
   },
   "footer": {
-    "tagline": "Ingeniería de productos de IA para SaaS B2B vertical establecido.",
+    "tagline": "Ingeniería de productos de IA para SaaS B2B verticales establecidos.",
     "siteHeading": "Sitio",
     "moreHeading": "Más",
     "contactHeading": "Contacto",
     "copyright": "© 2026 Datics AI. Todos los derechos reservados.",
-    "bottomTagline": "Ingeniería de productos de IA para SaaS B2B vertical establecido."
+    "bottomTagline": "Ingeniería de productos de IA para SaaS B2B verticales establecidos."
   },
   "workPage": {
     "hero": {
       "eyebrow": "Nuestros trabajos",
-      "title": "IA integrada en software por el que los clientes ya pagan",
+      "title": "IA integrada en software por el que tus clientes ya pagan",
       "description": "Estos eran productos en vivo con usuarios reales, flujos de trabajo existentes, restricciones regulatorias y años de decisiones de producto acumuladas que no podíamos eludir. Aquí está lo que se implementó.",
       "primaryCta": "Reserva una revisión de producto de 30 minutos",
-      "secondaryCta": "Mira cómo trabajamos"
+      "secondaryCta": "Ve cómo trabajamos"
     },
     "proof": {
       "eyebrow": "Prueba",
-      "title": "IA integrada en software por el que los clientes ya pagan",
+      "title": "IA integrada en software por el que tus clientes ya pagan",
       "description": "Filtra por lo que importa a tu producto: qué tan establecida está la base de código, la industria y el tipo de capacidad de IA que agregamos."
     },
     "filters": {
@@ -42,7 +42,7 @@
     },
     "caseStudies_cta": "Leer el caso de estudio",
     "testimonialsSection": {
-      "eyebrow": "Lo que dicen los clientes",
+      "eyebrow": "Lo que dicen nuestros clientes",
       "title": "Equipos que implementaron IA en producción con nosotros",
       "prev": "Mostrar testimonio anterior",
       "next": "Mostrar siguiente testimonio"
@@ -172,8 +172,8 @@
     "hero": {
       "eyebrow": "Qué hacemos",
       "title": "Convierte un mandato de IA en una característica de producto funcional.",
-      "subtitle": "Datics integra IA en productos SaaS B2B vertical establecidos, no al lado de ellos. Trabajamos dentro de tu arquitectura, datos y permisos existentes para que la IA llegue a producción sin una reescritura de plataforma.",
-      "ctaPrimary": "Mira cómo trabajamos",
+      "subtitle": "Datics integra IA en productos SaaS B2B verticales establecidos, no junto a ellos. Trabajamos dentro de tu arquitectura, datos y permisos existentes para que la IA llegue a producción sin una reescritura de plataforma.",
+      "ctaPrimary": "Ve cómo trabajamos",
       "ctaSecondary": "Ver nuestro trabajo",
       "note1": "Construido alrededor de tu producto existente",
       "note2": "Producción, no pilotos",
@@ -181,8 +181,8 @@
     },
     "solutions": {
       "eyebrow": "Soluciones",
-      "title": "Seis formas en que te ayudamos a llevar IA al producto.",
-      "subtitle": "Las iniciativas de IA se estancan por diferentes razones. A veces el bloqueador es la arquitectura. A veces es la confianza, la acción, la gobernanza, o simplemente saber por dónde empezar.",
+      "title": "Seis formas en que te ayudamos a integrar IA en el producto.",
+      "subtitle": "Las iniciativas de IA se estancan por diferentes razones. A veces el obstáculo es la arquitectura. A veces es la confianza, la acción, la gobernanza, o simplemente saber por dónde empezar.",
       "cta": "Explora el modelo de engagement",
       "items": [
         {
@@ -225,7 +225,7 @@
     },
     "problems": {
       "eyebrow": "Los problemas que resolvemos",
-      "title": "El modelo no es el cuello de botella. El producto que lo rodea sí.",
+      "title": "El modelo no es el cuello de botella. El producto que lo rodea sí lo es.",
       "subtitle": "Cuatro lugares donde las iniciativas de IA se estancan dentro de productos SaaS establecidos.",
       "items": [
         {
@@ -271,7 +271,7 @@
       "title": "Cambia solo lo que la capacidad de IA realmente requiere.",
       "subtitle": "Cada solución puede tocar una capa o varias. Solo cambiamos las partes necesarias para que funcione de forma segura en producción.",
       "harnessTitle": "La capa alrededor del modelo",
-      "harnessDescription": "Llamamos al sistema circundante el arnés del agente: contexto, herramientas, permisos, aprobaciones, evaluación y auditoría.",
+      "harnessDescription": "Llamamos al sistema circundante el agent harness: contexto, herramientas, permisos, aprobaciones, evaluación y auditoría.",
       "pathTitle": "Ruta de acción de IA",
       "activeStepLabel": "Herramientas permitidas",
       "activeStepTitle": "Herramientas permitidas",
@@ -315,7 +315,7 @@
     },
     "caseStudies": {
       "eyebrow": "Prueba",
-      "title": "IA implementada en software que los clientes ya pagan.",
+      "title": "IA integrada en software por el que los clientes ya pagan.",
       "subtitle": "Estos eran productos en vivo con usuarios reales, flujos de trabajo existentes y restricciones que no podíamos ignorar.",
       "readLabel": "Leer el caso de estudio",
       "viewAll": "Todos los casos de estudio",
@@ -374,8 +374,8 @@
     "hero": {
       "eyebrow": "Cómo trabajamos",
       "heading": "Un camino práctico desde el mandato de IA hasta la producción.",
-      "description": "Dependiendo de dónde estés, podemos comenzar con un Sprint nativo de IA para definir el camino, un Desbloqueo dirigido para eliminar dependencias, u una Onda de capacidad para implementar la capacidad.",
-      "subheading": "Sprint nativo de IA → Desbloqueo dirigido → Onda de capacidad",
+      "description": "Dependiendo de dónde estés, podemos comenzar con un AI-Native Sprint para definir el camino, un Targeted Unlock para eliminar dependencias, o una Capability Wave para entregar la capacidad.",
+      "subheading": "AI-Native Sprint → Targeted Unlock → Capability Wave",
       "ctaPrimary": "Reserva una revisión de producto de 30 minutos",
       "ctaSecondary": "Ver nuestro trabajo"
     },
@@ -423,9 +423,9 @@
       ]
     },
     "waves": {
-      "eyebrow": "Ondas de capacidad",
-      "heading": "Las ondas de capacidad se componen en lugar de reiniciarse.",
-      "description": "Cada onda implementa una capacidad en producción, luego reutiliza lo que construyó como base para la siguiente, en lugar de comenzar la arquitectura de nuevo.",
+      "eyebrow": "Capability Waves",
+      "heading": "Las capability waves se componen en lugar de reiniciarse.",
+      "description": "Cada wave entrega una capacidad a producción, luego reutiliza lo que construyó como base para la siguiente, en lugar de comenzar la arquitectura de nuevo.",
       "diagramLabel": "Ciclo de onda de capacidad",
       "loopLabel": "Volver a construir",
       "steps": [
@@ -500,7 +500,7 @@
     },
     "cta": {
       "heading": "Tu producto ya funciona. Ahora haz que la IA funcione dentro de él.",
-      "description": "Comienza con una revisión de producto de 30 minutos para ver dónde se ajusta tu roadmap al modelo de engagement.",
+      "description": "Comienza con una revisión de producto de 30 minutos para ver dónde encaja tu roadmap en el modelo de engagement.",
       "button": "Reserva una revisión de producto de 30 minutos"
     }
   },
@@ -514,8 +514,8 @@
     },
     "story": {
       "eyebrow": "Nuestra historia",
-      "title": "Crecimos en IA y datos, luego aprendimos a lanzar productos alrededor de ello.",
-      "body": "Datics comenzó como una práctica de IA y ciencia de datos antes de que la IA generativa remodelara el mercado. Cuando llegaron los modelos de lenguaje grandes, ya estábamos en el lugar donde la ciencia de datos y la ingeniería de productos se encuentran, así que crecimos hacia el equipo que hace que la IA funcione dentro del software en el que otros equipos ya dependen.",
+      "title": "Crecimos en IA y datos, luego aprendimos a lanzar productos alrededor de ella.",
+      "body": "Datics comenzó como una práctica de IA y ciencia de datos antes de que la IA generativa remodelara el mercado. Cuando llegaron los grandes modelos de lenguaje, ya estábamos en el lugar donde la ciencia de datos y la ingeniería de productos se encuentran, así que crecimos para ser el equipo que hace que la IA funcione dentro del software en el que otros equipos ya dependen.",
       "cards": [
         {
           "title": "Brownfield by specialization",
@@ -534,7 +534,7 @@
     "stats": {
       "eyebrow": "Por los números",
       "title": "Años dentro de SaaS en producción, no un portafolio de prototipos.",
-      "body": "Esa complejidad no es solo deuda técnica. También es el conocimiento del dominio, acceso a sistemas y contexto del cliente que los nuevos participantes enfocados en IA aún tienen que construir.",
+      "body": "Esa complejidad no es solo deuda técnica. También es el conocimiento del dominio, acceso al sistema y contexto del cliente que los nuevos participantes enfocados en IA aún tienen que construir.",
       "items": [
         {
           "value": "2018",
@@ -614,8 +614,8 @@
     }
   },
   "hero": {
-    "eyebrow": "Estudio de ingeniería de productos de IA",
-    "titleLine1": "Ingeniería de productos de IA para",
+    "eyebrow": "Estudio de ingeniería de productos con IA",
+    "titleLine1": "Ingeniería de productos con IA para",
     "titleLine2": "SaaS B2B vertical.",
     "subtitle": "Incrustamos ingenieros senior dentro de empresas de software establecidas para diseñar, construir y lanzar las características de IA que sus clientes ya están pidiendo.",
     "ctaPrimary": "Inicia un proyecto",
@@ -667,11 +667,12 @@
     ]
   },
   "work": {
-    "eyebrow": "Trabajos seleccionados",
+    "eyebrow": "Trabajo seleccionado",
     "title": "Engagements con equipos de software establecidos.",
     "viewAll": "Ver todo el trabajo",
     "cta": "Ver Proyecto",
-    "readMore": "Más información",
+    "readMore": "Más Información",
+    "readCase": "Leer Caso de Estudio",
     "items": [
       {
         "company": "A mid-market logistics platform",
@@ -771,7 +772,9 @@
     "subtitle": "Cuéntanos qué intentas enviar. Te diremos honestamente si es un buen ajuste para nosotros.",
     "primary": "Envíanos un email",
     "secondary": "Llámanos",
-    "ctaPrimary": "Comenzar"
+    "ctaPrimary": "Comenzar",
+    "button": "Ponte en Contacto",
+    "description": "¿Listo para comenzar tu próximo proyecto? Hablemos."
   },
   "proof": {
     "stats": [
