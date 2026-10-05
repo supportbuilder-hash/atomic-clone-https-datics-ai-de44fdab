@@ -9,23 +9,23 @@ import { staggerContainer } from "@/lib/motion";
 import { BRAND_NAME, BRAND_TAGLINE, CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/data";
 
 interface StatEntry {
-  value: string;
-  label: string;
+  value?: string;
+  label?: string;
 }
 
 interface ProcessStageEntry {
-  name: string;
-  duration: string;
-  description: string;
+  name?: string;
+  duration?: string;
+  description?: string;
 }
 
 interface CaseStudySummary {
-  company: string;
-  industry: string;
-  headline: string;
-  description: string;
-  tags: string[];
-  href: string;
+  company?: string;
+  industry?: string;
+  headline?: string;
+  description?: string;
+  tags?: string[];
+  href?: string;
 }
 
 type IconKey = "sparkles" | "activity" | "gitBranch" | "terminal" | "fileCode" | "layout";
@@ -40,14 +40,14 @@ const ICONS: Record<IconKey, typeof Sparkles> = {
 };
 
 interface CapabilityItem {
-  icon: IconKey;
-  title: string;
-  description: string;
+  icon?: IconKey;
+  title?: string;
+  description?: string;
 }
 
 interface VerticalItem {
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
 }
 
 const panelRow: Variants = {
@@ -58,29 +58,43 @@ const panelRow: Variants = {
 export default function HomePage() {
   const t = useTranslations();
 
+  /**
+   * next-intl's t.raw() can throw (not just return undefined) when a
+   * namespace/key is entirely absent from the active locale's messages file.
+   * Guard every call so a missing key degrades to an empty array instead of
+   * crashing the whole page render with a 500.
+   */
+  function safeRaw(key: string): unknown {
+    try {
+      return t.raw(key);
+    } catch {
+      return undefined;
+    }
+  }
+
   const capabilities = (
-    Array.isArray(t.raw("capabilities.items")) ? t.raw("capabilities.items") : []
-  ) as CapabilityItem[];
+    Array.isArray(safeRaw("capabilities.items")) ? (safeRaw("capabilities.items") as CapabilityItem[]) : []
+  );
 
   const caseStudies = (
-    Array.isArray(t.raw("work.items")) ? t.raw("work.items") : []
-  ) as CaseStudySummary[];
+    Array.isArray(safeRaw("work.items")) ? (safeRaw("work.items") as CaseStudySummary[]) : []
+  );
 
   const stages = (
-    Array.isArray(t.raw("process.stages")) ? t.raw("process.stages") : []
-  ) as ProcessStageEntry[];
+    Array.isArray(safeRaw("process.stages")) ? (safeRaw("process.stages") as ProcessStageEntry[]) : []
+  );
 
   const verticals = (
-    Array.isArray(t.raw("verticals.items")) ? t.raw("verticals.items") : []
-  ) as VerticalItem[];
+    Array.isArray(safeRaw("verticals.items")) ? (safeRaw("verticals.items") as VerticalItem[]) : []
+  );
 
   const proofStats = (
-    Array.isArray(t.raw("proof.stats")) ? t.raw("proof.stats") : []
-  ) as StatEntry[];
+    Array.isArray(safeRaw("proof.stats")) ? (safeRaw("proof.stats") as StatEntry[]) : []
+  );
 
   const heroMetrics = (
-    Array.isArray(t.raw("hero.metrics")) ? t.raw("hero.metrics") : []
-  ) as StatEntry[];
+    Array.isArray(safeRaw("hero.metrics")) ? (safeRaw("hero.metrics") as StatEntry[]) : []
+  );
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">
@@ -146,12 +160,12 @@ export default function HomePage() {
               <div className="mt-5 space-y-3">
                 {heroMetrics.map((metric, i) => (
                   <motion.div
-                    key={i}
+                    key={metric?.label ?? i}
                     variants={panelRow}
                     className="flex items-center justify-between rounded-xl bg-[var(--background)] px-4 py-3"
                   >
-                    <span className="text-sm text-[var(--muted-foreground)]">{metric.label}</span>
-                    <span className="text-sm font-semibold tabular-nums">{metric.value}</span>
+                    <span className="text-sm text-[var(--muted-foreground)]">{metric?.label ?? ""}</span>
+                    <span className="text-sm font-semibold tabular-nums">{metric?.value ?? ""}</span>
                   </motion.div>
                 ))}
               </div>
@@ -181,7 +195,7 @@ export default function HomePage() {
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-6">
             {capabilities.map((item, i) => {
-              const Icon = ICONS[item.icon] ?? Sparkles;
+              const Icon = (item?.icon && ICONS[item.icon]) || Sparkles;
               const spanClass =
                 i === 0
                   ? "md:col-span-4 md:row-span-2"
@@ -191,86 +205,29 @@ export default function HomePage() {
                   ? "md:col-span-2"
                   : "md:col-span-3";
               return (
-                <Reveal key={item.title} delay={i * 0.06} className={spanClass}>
-                  <div className="group h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 transition-all duration-300 ease-out hover:border-indigo-500/30 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-12px_rgba(0,0,0,0.15)]">
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <h3 className="mt-5 text-lg font-semibold tracking-tight">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                      {item.description}
-                    </p>
+                <div
+                  key={item?.title ?? i}
+                  className={`${spanClass} rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.18)]`}
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                </Reveal>
+                  <h3 className="mt-4 text-lg font-semibold tracking-tight">{item?.title ?? ""}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                    {item?.description ?? ""}
+                  </p>
+                </div>
               );
             })}
           </div>
         </section>
       </Reveal>
 
-      {/* WORK — full-bleed tinted, offset cards */}
+      {/* PROCESS — timeline list */}
       <Reveal>
-        <section id="work" className="border-y border-[var(--border)] bg-[var(--card)]">
+        <section id="engagement-process" className="border-y border-[var(--border)] bg-[var(--card)]">
           <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <div className="max-w-xl">
-                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
-                  {t("work.eyebrow")}
-                </span>
-                <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-                  {t("work.title")}
-                </h2>
-              </div>
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500 transition-colors duration-300 hover:text-indigo-400"
-              >
-                {t("work.viewAll")}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
-              {caseStudies.map((study, i) => (
-                <Reveal key={study.company} delay={i * 0.08} className={i === 1 ? "lg:mt-8" : ""}>
-                  <Link
-                    href={study.href}
-                    className="group flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--background)] p-7 transition-all duration-300 ease-out hover:border-indigo-500/30 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-12px_rgba(0,0,0,0.15)]"
-                  >
-                    <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">
-                      {study.industry}
-                    </span>
-                    <h3 className="mt-4 text-xl font-semibold tracking-tight">{study.headline}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                      {study.description}
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {(study.tags ?? []).map((tag: string, tagIdx: number) => (
-                        <span
-                          key={tagIdx}
-                          className="rounded-full border border-[var(--border)] px-2.5 py-1 text-xs text-[var(--muted-foreground)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500">
-                      {study.company}
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
-                    </span>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      {/* PROCESS — list / timeline layout */}
-      <Reveal>
-        <section id="process" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
+            <div className="max-w-2xl">
               <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
                 {t("process.eyebrow")}
               </span>
@@ -281,109 +238,164 @@ export default function HomePage() {
                 {t("process.subtitle")}
               </p>
             </div>
-            <ol className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
+
+            <div className="mt-12 divide-y divide-[var(--border)] border-t border-[var(--border)]">
               {stages.map((stage, i) => (
-                <Reveal key={stage.name} delay={i * 0.07}>
-                  <li className="flex flex-col gap-2 py-6 sm:flex-row sm:items-start sm:gap-8">
-                    <span className="shrink-0 text-sm font-semibold text-indigo-500">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <h3 className="text-lg font-semibold tracking-tight">{stage.name}</h3>
-                        <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">
-                          {stage.duration}
-                        </span>
-                      </div>
-                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
-                        {stage.description}
-                      </p>
-                    </div>
-                  </li>
-                </Reveal>
+                <div
+                  key={stage?.name ?? i}
+                  className="grid grid-cols-1 gap-3 py-7 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-8"
+                >
+                  <span className="text-sm font-semibold tabular-nums text-indigo-500">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold tracking-tight">{stage?.name ?? ""}</h3>
+                    <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--muted-foreground)]">
+                      {stage?.description ?? ""}
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-[var(--muted-foreground)] md:text-right">
+                    {stage?.duration ?? ""}
+                  </span>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
       </Reveal>
 
-      {/* VERTICALS + PROOF — tinted dark band, stat strip */}
+      {/* VERTICALS */}
       <Reveal>
-        <section id="verticals" className="bg-[var(--foreground)] text-[var(--background)]">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+        <section id="solutions-grid" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
+              {t("verticals.eyebrow")}
+            </span>
+            <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+              {t("verticals.title")}
+            </h2>
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
+              {t("verticals.subtitle")}
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {verticals.map((item, i) => (
+              <div
+                key={item?.name ?? i}
+                className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:border-indigo-500/30"
+              >
+                <h3 className="text-lg font-semibold tracking-tight">{item?.name ?? ""}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                  {item?.description ?? ""}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      {/* PROOF / STATS */}
+      <Reveal>
+        <section className="border-y border-[var(--border)] bg-[var(--primary)] text-white">
+          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              {proofStats.map((stat, i) => (
+                <div key={stat?.label ?? i}>
+                  <p className="text-4xl font-semibold tracking-tight">{stat?.value ?? ""}</p>
+                  <p className="mt-2 text-sm text-white/70">{stat?.label ?? ""}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* CASE STUDIES */}
+      <Reveal>
+        <section id="work-preview" className="mx-auto max-w-7xl px-6 py-24 md:py-28 lg:px-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400">
-                {t("verticals.eyebrow")}
+              <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
+                {t("work.eyebrow")}
               </span>
               <h2 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-                {t("verticals.title")}
+                {t("work.title")}
               </h2>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-[var(--background)]/70">
-                {t("verticals.subtitle")}
-              </p>
             </div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-500 transition-colors duration-200 hover:text-indigo-600"
+            >
+              {t("work.cta")}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
 
-            <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {verticals.map((v, i) => (
-                <Reveal key={v.name} delay={i * 0.06}>
-                  <div className="h-full rounded-2xl border border-[var(--background)]/10 bg-[var(--background)]/5 p-6">
-                    <h3 className="text-base font-semibold tracking-tight">{v.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--background)]/70">
-                      {v.description}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="mt-16 grid grid-cols-2 gap-6 border-t border-[var(--background)]/10 pt-10 sm:grid-cols-4">
-              {proofStats.map((stat, i) => (
-                <Reveal key={stat.label} delay={i * 0.05}>
-                  <div>
-                    <p className="text-2xl font-semibold tracking-tight md:text-3xl">{stat.value}</p>
-                    <p className="mt-1 text-xs uppercase tracking-wider text-[var(--background)]/60">
-                      {stat.label}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {caseStudies.map((item, i) => (
+              <Link
+                key={item?.company ?? i}
+                href={item?.href ?? "/work"}
+                className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_32px_-8px_rgba(0,0,0,0.18)]"
+              >
+                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-500">
+                  {item?.industry ?? ""}
+                </span>
+                <h3 className="mt-3 text-lg font-semibold tracking-tight">{item?.company ?? ""}</h3>
+                <p className="mt-2 text-sm font-medium leading-relaxed">{item?.headline ?? ""}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                  {item?.description ?? ""}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item?.tags?.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-[var(--background)] px-2.5 py-1 text-xs font-medium text-[var(--muted-foreground)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-indigo-500">
+                  {t("work.readMore")}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
       </Reveal>
 
-      {/* CTA — centered, distinct close */}
+      {/* CTA BANNER */}
       <Reveal>
-        <section id="contact" className="mx-auto max-w-5xl px-6 py-24 text-center md:py-28 lg:px-8">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            {t("cta.title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
-            {t("cta.subtitle")}
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.08),0_12px_24px_-8px_rgba(79,70,229,0.45)] transition-all duration-300 ease-out hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-            >
-              <Mail className="h-4 w-4" aria-hidden="true" />
-              {t("cta.primary")}
-            </a>
-            <a
-              href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition-all duration-300 ease-out hover:border-indigo-500/40 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-            >
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              {t("cta.secondary")}
-            </a>
+        <section id="cta-banner" className="border-t border-[var(--border)] bg-[var(--card)]">
+          <div className="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+              {t("cta.title")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-[var(--muted-foreground)]">
+              {t("cta.subtitle")}
+            </p>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.08),0_12px_24px_-8px_rgba(79,70,229,0.45)] transition-all duration-300 ease-out hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                {t("cta.ctaPrimary")}
+              </a>
+              <a
+                href={`tel:${CONTACT_PHONE}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition-all duration-300 ease-out hover:border-indigo-500/40 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                {CONTACT_PHONE}
+              </a>
+            </div>
           </div>
-          <p className="mt-6 text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
-            {BRAND_NAME_LABEL}
-          </p>
         </section>
       </Reveal>
     </main>
   );
 }
-
-const BRAND_NAME_LABEL = BRAND_NAME;

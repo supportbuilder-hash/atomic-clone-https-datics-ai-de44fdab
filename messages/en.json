@@ -704,7 +704,9 @@
         ],
         "href": "/work"
       }
-    ]
+    ],
+    "cta": "View Project",
+    "readMore": "Learn More"
   },
   "process": {
     "eyebrow": "How we work",
@@ -788,6 +790,7 @@
     "title": "Have an AI feature stuck in the backlog?",
     "subtitle": "Tell us what you're trying to ship. We will tell you honestly whether it is a good fit for us.",
     "primary": "Email us",
-    "secondary": "Call us"
+    "secondary": "Call us",
+    "ctaPrimary": "Get Started"
   }
 }
